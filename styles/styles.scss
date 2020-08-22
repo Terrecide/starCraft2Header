@@ -71,7 +71,7 @@ $nav-link-active-color: rgba(102, 179, 255, .8);
     @include nav-link-mixin(#488fa1);
 }
 
-.nav-link:active, .nav-link-subheader:active, .active {
+.nav-link:active, .nav-link:hover, .nav-link-subheader:active, .nav-link-subheader:hover, .active {
     color: #EEF5FF;
     text-shadow: 0px 0px 11px $nav-link-active-color;    
 }
