@@ -145,18 +145,22 @@ body {
 
 @-webkit-keyframes fadeOut {
   from {
+    pointer-events: none;
     opacity: 1;
   }
   to {
+    pointer-events: none;
     opacity: 0;
   }
 }
 
 @keyframes fadeOut {
   from {
+    pointer-events: none;
     opacity: 1;
   }
   to {
+    pointer-events: none;
     opacity: 0;
   }
 }
