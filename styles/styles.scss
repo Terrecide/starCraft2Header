@@ -1,0 +1,125 @@
+@font-face {
+    font-family: EurostileRound;
+    src: url(../fonts/EurostileExt-Reg.otf);
+}
+
+body {
+    margin: 0px;
+    background-image: url('../images/main-menu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+$nav-bar-background: rgba(20,36,51,.8) linear-gradient(rgba(20,61,102,.2),rgba(20,61,102,.2));
+$nav-bar-subheader-background: rgba(4, 12, 20, 0.8) linear-gradient(rgba(10, 30, 51, 0.2),rgba(10, 30, 51, 0.2));
+$nav-bar-border-color: rgba(43, 72, 100, 0.5);
+$nav-link-active-color: rgba(102, 179, 255, .8);
+
+
+@mixin nav-bar-mixin($height, $background) {
+    height: $height;
+    display: flex;
+    backdrop-filter: blur(4px);
+    background: $background;
+    border-bottom: 1px solid $nav-bar-border-color;
+}
+
+#nav-bar {
+    @include nav-bar-mixin(50px, $nav-bar-background);
+    place-content: space-around;
+}
+
+#nav-bar-subheader {
+    @include nav-bar-mixin(40px, $nav-bar-subheader-background);
+    padding: 0 15rem;
+}
+
+@mixin nav-links-mixin($align-items) {
+    display: flex;
+    align-items: $align-items;
+}
+
+.nav-links {
+    @include nav-links-mixin(stretch);
+}
+
+.nav-links-subheader {
+    @include nav-links-mixin(center);
+}
+
+@mixin nav-link-mixin($color) {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    color: $color;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: EurostileRound;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: .15em;
+    border: 1px solid $nav-bar-border-color;
+    border-width: 0 1px 0 1px;
+    position: relative;
+}
+
+.nav-link {
+    @include nav-link-mixin(#ccfffb);
+}
+
+.nav-link-subheader {
+    @include nav-link-mixin(#488fa1);
+}
+
+.nav-link:active, .nav-link-subheader:active, .active {
+    color: #EEF5FF;
+    text-shadow: 0px 0px 11px $nav-link-active-color;    
+}
+
+.nav-link:active::after, .nav-link-subheader:active::after, .active::after {
+    content: '';
+    height: 2px; 
+    background: radial-gradient(at 50% 200%, $nav-link-active-color 1px, transparent 90%);
+    width: 120%;
+    position: absolute; 
+    bottom: 0;
+    padding-top: 15px;
+    top: 70%;
+    left: -10%;
+}
+
+// Subheader animations
+
+.hide{
+    display:none !important;
+}
+
+.fade-in{
+    animation: 1s fadeIn;
+}
+
+
+.fade-out{
+    animation: 1s fadeOut;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+@keyframes fadeOut{
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0;
+    }
+}
